@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_games">
+
+    <activity
+        android:id="@+id/activityMain"
+        android:name="com.example.servergames.MainActivity"
+        android:label="RoomsFragment"
+        tools:layout="@layout/activity_main">
+
+    </activity>
+
+    <fragment
+        android:id="@+id/fragment_games"
+        android:name="com.example.servergames.View.GamesFragment"
+        android:label="GamesFragment">
+
+
+    </fragment>
+
+
+</navigation>
