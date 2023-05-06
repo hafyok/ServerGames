@@ -53,6 +53,8 @@ public class GamesAdapter extends RecyclerView.Adapter<GameViewHolder> {
                 .load(urlImg.get(position))
                 .placeholder(R.drawable.ic_baseline_error_24)
                 .into(imageView);
+
+        holder.bind("title", "contentt", "null", imageView, mContext);
     }
 
 

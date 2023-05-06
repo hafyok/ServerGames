@@ -1,8 +1,11 @@
 package com.example.servergames.View.Adapters.viewHolders;
 
+import android.content.Context;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +21,15 @@ public class GameViewHolder extends RecyclerView.ViewHolder {
         radioButton = ceb.rButton2;
         mImageView = ceb.gameImageView;
         textView = ceb.describeGame;
+    }
+
+    public void bind(String title, String content, String url, ImageView imageView, Context context) {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Pressed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public RadioButton getRadioButton(){
