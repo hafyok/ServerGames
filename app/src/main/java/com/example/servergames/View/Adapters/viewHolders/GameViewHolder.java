@@ -1,6 +1,7 @@
 package com.example.servergames.View.Adapters.viewHolders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.servergames.View.ContentActivity;
 import com.example.servergames.databinding.GameElementBinding;
 
 public class GameViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +29,12 @@ public class GameViewHolder extends RecyclerView.ViewHolder {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Pressed", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ContentActivity.class);
+                intent.putExtra("title", title);
+                intent.putExtra("content", content);
+                intent.putExtra("image", url);
+                Toast.makeText(context, url, Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
             }
         });
     }

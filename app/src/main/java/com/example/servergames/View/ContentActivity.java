@@ -6,12 +6,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.servergames.R;
 import com.example.servergames.ViewModel.ContentActivityViewModel;
 import com.example.servergames.databinding.ContentLayoutBinding;
@@ -23,23 +26,28 @@ public class ContentActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_layout);
-        binding.tvTitle.setText("TITLE");
+        binding = ContentLayoutBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        //binding.tvTitle.setText("TITLE");
+        String title = getIntent().getStringExtra("title");
+        String content = getIntent().getStringExtra("content");
+        String url = getIntent().getStringExtra("image");
+        Toast.makeText(this, url, Toast.LENGTH_LONG).show();
+
+        ImageView image = binding.imageContent;
+        Glide.with(this)
+                .load(url)
+                .placeholder(R.drawable.ic_baseline_error_24)
+                .into(image);
+
+        binding.tvTitle.setText(title);
+        binding.tvContent.setText(content);
+        //binding.imageContent.setImageResource(image);
+
+        /*Toast.makeText(this, "Enter", Toast.LENGTH_SHORT).show();
         binding.tvContent.setText("CONTENT");
         binding.imageContent.setImageResource(getIntent().getIntExtra(
-                "image", R.drawable.ic_baseline_error_24));
+                "image", R.drawable.ic_baseline_error_24));*/
     }
-
-    /*@Nullable
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = ContentLayoutBinding.inflate(inflater, container,false);
-        mViewModel = new ViewModelProvider(this).get(ContentActivityViewModel.class);
-
-        View view = binding.getRoot();
-
-
-
-        return view;
-    }*/
 }
