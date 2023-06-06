@@ -1,4 +1,4 @@
-package com.example.servergames;
+package Network;
 
 import com.example.servergames.Model.POJO.PaginatedGamesPOJO;
 

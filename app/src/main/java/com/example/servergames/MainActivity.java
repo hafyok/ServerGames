@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.servergames.View.GamesFragment;
 import com.example.servergames.databinding.ActivityMainBinding;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
     public ActivityMainBinding binding;
@@ -16,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
+
+        FirebaseApp app = FirebaseApp.getInstance();
+        if (app != null) {
+            Log.d("Firebase", "Firebase app is initialized");
+        } else {
+            Log.d("Firebase", "Firebase app is not initialized");
+        }
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

@@ -43,11 +43,6 @@ public class ContentActivity extends AppCompatActivity {
 
         binding.tvTitle.setText(title);
         binding.tvContent.setText(content);
-        //binding.imageContent.setImageResource(image);
 
-        /*Toast.makeText(this, "Enter", Toast.LENGTH_SHORT).show();
-        binding.tvContent.setText("CONTENT");
-        binding.imageContent.setImageResource(getIntent().getIntExtra(
-                "image", R.drawable.ic_baseline_error_24));*/
     }
 }

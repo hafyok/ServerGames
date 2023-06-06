@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.servergames.BuildConfig;
 import com.example.servergames.Model.Game;
 import com.example.servergames.Model.POJO.PaginatedGamesPOJO;
-import com.example.servergames.RAWGapi;
+import Network.RAWGapi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

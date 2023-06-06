@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_games">
+    app:startDestination="@id/loginFragment">
 
-    <!--<activity
-        android:id="@+id/activityMain"
-        android:name="com.example.servergames.MainActivity"
-        android:label="RoomsFragment"
-        tools:layout="@layout/activity_main">
-
-    </activity>-->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.servergames.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/login_layout">
+        <action
+            android:id="@+id/action_loginFragment_to_gamesFragment"
+            app:destination="@id/fragment_games" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_games"
@@ -19,8 +21,6 @@
         android:label="GamesFragment"
         tools:layout="@layout/fragment_games">
 
-
     </fragment>
-
 
 </navigation>
