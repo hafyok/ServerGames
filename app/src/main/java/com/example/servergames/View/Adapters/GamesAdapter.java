@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,16 +23,17 @@ public class GamesAdapter extends RecyclerView.Adapter<GameViewHolder> {
     private final List<String> games;
     private final GamesFragment gamesFragment;
     private final List<String> urlImg;
+    private final List<Integer> id;
     FragmentGamesBinding binding;
     private Context mContext;
 
 
-    public GamesAdapter(GamesFragment gamesFragment, List<String> games, List<String> urlImg){
+    public GamesAdapter(GamesFragment gamesFragment, List<String> games, List<String> urlImg, List<Integer> id){
         this.gamesFragment = gamesFragment;
         this.games = games;
         this.urlImg = urlImg;
+        this.id = id;
         mContext = gamesFragment.getContext();
-        //binding = FragmentPeopleBinding.inflate(inflater, container, false);
     }
 
 
@@ -47,14 +49,15 @@ public class GamesAdapter extends RecyclerView.Adapter<GameViewHolder> {
     public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
         ImageView imageView = holder.getImageView();
         holder.getRadioButton().setText(games.get(position));
-        //holder.getTextView().setText(urlImg.get(position));
 
         Glide.with(mContext)
                 .load(urlImg.get(position))
                 .placeholder(R.drawable.ic_baseline_error_24)
                 .into(imageView);
 
-        holder.bind(games.get(position), "contentt", urlImg.get(position), imageView, mContext);
+        holder.bind(games.get(position), "contentt", urlImg.get(position), imageView, id.get(position), mContext);
+        Toast.makeText(mContext, games.get(position), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, id.get(position).toString(), Toast.LENGTH_SHORT).show();
     }
 
 

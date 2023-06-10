@@ -17,15 +17,18 @@ public class GameViewHolder extends RecyclerView.ViewHolder {
     RadioButton radioButton;
     ImageView mImageView;
     TextView textView;
+    TextView idTv;
 
     public GameViewHolder(GameElementBinding ceb) {
         super(ceb.getRoot());
         radioButton = ceb.rButton2;
         mImageView = ceb.gameImageView;
         textView = ceb.describeGame;
+        idTv = ceb.idTv;
+
     }
 
-    public void bind(String title, String content, String url, ImageView imageView, Context context) {
+    public void bind(String title, String content, String url, ImageView imageView, Integer id, Context context) {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,6 +36,7 @@ public class GameViewHolder extends RecyclerView.ViewHolder {
                 intent.putExtra("title", title);
                 intent.putExtra("content", content);
                 intent.putExtra("image", url);
+                intent.putExtra("id", id.toString());
                 Toast.makeText(context, url, Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }

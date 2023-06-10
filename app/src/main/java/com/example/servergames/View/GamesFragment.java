@@ -39,7 +39,8 @@ public class GamesFragment extends Fragment {
                     new GamesAdapter(
                             this,
                             games.stream().map(Game::getName).collect(toList()),
-                            games.stream().map(Game::getBackground_img).collect(toList())
+                            games.stream().map(Game::getBackground_img).collect(toList()),
+                            games.stream().map(Game::getId).collect(toList())
                     )
             );
         });

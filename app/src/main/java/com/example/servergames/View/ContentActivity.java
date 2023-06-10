@@ -33,6 +33,7 @@ public class ContentActivity extends AppCompatActivity {
         String title = getIntent().getStringExtra("title");
         String content = getIntent().getStringExtra("content");
         String url = getIntent().getStringExtra("image");
+        String id = getIntent().getStringExtra(("id"));
         Toast.makeText(this, url, Toast.LENGTH_LONG).show();
 
         ImageView image = binding.imageContent;
@@ -43,6 +44,7 @@ public class ContentActivity extends AppCompatActivity {
 
         binding.tvTitle.setText(title);
         binding.tvContent.setText(content);
+        binding.idTv.setText(id);
 
     }
 }
