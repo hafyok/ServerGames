@@ -37,7 +37,7 @@ public class GameViewHolder extends RecyclerView.ViewHolder {
                 intent.putExtra("content", content);
                 intent.putExtra("image", url);
                 intent.putExtra("id", id.toString());
-                Toast.makeText(context, url, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, url, Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });

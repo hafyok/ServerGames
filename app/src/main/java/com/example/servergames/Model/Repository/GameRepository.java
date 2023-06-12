@@ -42,7 +42,7 @@ public class GameRepository {
         api = retrofit.create(RAWGapi.class);
     }
 
-    public  LiveData<List<Game>> getAllGames(){
+    public LiveData<List<Game>> getAllGames(){
         MutableLiveData<List<Game>> result = new MutableLiveData<>();
 
         api.getListOfGames(BuildConfig.RAWG_API_KEY).enqueue(new Callback<PaginatedGamesPOJO>() {

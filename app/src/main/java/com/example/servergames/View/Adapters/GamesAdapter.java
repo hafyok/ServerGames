@@ -56,8 +56,8 @@ public class GamesAdapter extends RecyclerView.Adapter<GameViewHolder> {
                 .into(imageView);
 
         holder.bind(games.get(position), "contentt", urlImg.get(position), imageView, id.get(position), mContext);
-        Toast.makeText(mContext, games.get(position), Toast.LENGTH_SHORT).show();
-        Toast.makeText(mContext, id.get(position).toString(), Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(mContext, games.get(position), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, id.get(position).toString(), Toast.LENGTH_SHORT).show();*/
     }
 
 
