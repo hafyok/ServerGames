@@ -1,4 +1,4 @@
-package com.example.servergames;
+package com.example.servergames.View;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,6 +17,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.servergames.Model.POJO.CRUDUser;
 
+import com.example.servergames.R;
+import com.example.servergames.Model.UserDataHolder;
 import com.example.servergames.databinding.LoginLayoutBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -82,39 +84,6 @@ public class LoginFragment extends NavHostFragment {
             Toast.makeText(getContext(), "User null", Toast.LENGTH_SHORT).show();
         }
 
-        //////////////////////////////////////////////////////////////
-        /*Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.56.1:8080/") //здесь IP-адрес моего компа
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        //Получаю тестовые данные
-        api = retrofit.create(ApiForFirebase.class);
-        Call<CRUDUser> call = api.getUser("user_2");
-        call.enqueue(new Callback<CRUDUser>() {
-            @Override
-            public void onResponse(Call<CRUDUser> call, Response<CRUDUser> response) {
-                if (response.isSuccessful()) {
-                    CRUDUser user = response.body();
-                    // Обработка успешного ответа
-                    Toast.makeText(getContext(), "Response: " + user.toString(), Toast.LENGTH_SHORT).show();
-                    Log.d("myAPI", "Response: " + user.toString());
-                } else {
-                    // Обработка ошибки
-                    Toast.makeText(getContext(), "Error: " + response.message(), Toast.LENGTH_SHORT).show();
-                    Log.d("myAPI", "Error onResponse: " + response.message());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CRUDUser> call, Throwable t) {
-                // Обработка ошибки
-                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("myAPI", "Error onFailure: " + t.getMessage());
-            }
-        });
-        */
-        //////////////////////////////////////////////////
     }
 
 
@@ -146,6 +115,7 @@ public class LoginFragment extends NavHostFragment {
                                     CRUDUser createdUser = response.body();
                                     identUser(email);
                                     Log.d("POST user", "Response: " + createdUser.toString());
+                                    Log.d("POST user", "Пользовтель успешно зарегестрирован");
                                 } else {
                                     Log.d("POST user", "Error onResponse: " + response.message());
                                 }
@@ -176,6 +146,7 @@ public class LoginFragment extends NavHostFragment {
                         identUser(email);
                         Toast.makeText(getContext(), "User SignIn Successful", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getContext(), email, Toast.LENGTH_SHORT).show();
+                        Log.d("Sign in", "Пользователь успешно авторизовался");
                         navigateToGamesFragment();
                     } else {
                         Toast.makeText(getContext(), "User SignIn failed", Toast.LENGTH_SHORT).show();

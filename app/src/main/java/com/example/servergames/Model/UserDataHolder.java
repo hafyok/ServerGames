@@ -1,4 +1,4 @@
-package com.example.servergames;
+package com.example.servergames.Model;
 
 import com.example.servergames.Model.POJO.CRUDUser;
 

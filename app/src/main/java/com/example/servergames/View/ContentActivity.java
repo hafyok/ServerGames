@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.servergames.Model.POJO.CRUDUser;
 import com.example.servergames.R;
-import com.example.servergames.UserDataHolder;
+import com.example.servergames.Model.UserDataHolder;
 import com.example.servergames.ViewModel.ContentActivityViewModel;
 import com.example.servergames.databinding.ContentLayoutBinding;
 
@@ -65,14 +65,8 @@ public class ContentActivity extends AppCompatActivity {
                         .baseUrl("http://192.168.56.1:8080/") //здесь IP-адрес моего компа
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
-
-                //Создаём экземпляр пользователя, чтобы затем отправить в бд
-                /*CRUDUser user = new CRUDUser();
-                user.setName(currentUser.getName());
-                user.setDocumentId(currentUser.getName());*/
                 api = retrofit.create(ApiForFirebase.class);
 
-                int num = Integer.valueOf(id);
                 Call<CRUDUser> call = api.addRecordId(email, Integer.parseInt(id));//Передаём email и id игры, которую передаём
                 Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
                 Log.d("INTEGER", id);
@@ -96,6 +90,7 @@ public class ContentActivity extends AppCompatActivity {
             } else {
                 // Код, который нужно выполнить при снятии отметки с CheckBox
                 Toast.makeText(ContentActivity.this, "CheckBox снят", Toast.LENGTH_SHORT).show();
+                Log.d("CheckBox", "CheckBox снят");
             }
         });
 
